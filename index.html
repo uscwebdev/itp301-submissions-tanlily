@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Lily Tan | Student Page</title>
+        <style>
+            #head {
+                text-align: center;
+            }
+            h1{
+                font-size: 2.5em;
+            }
+            .h2{
+                font-size: 0.8em;
+                color:#6b8e23;
+            }
+            .square {
+                border: 1px solid #CCC;
+                width: 120px;
+                height: 40px;
+                margin-left: auto;
+                margin-right: auto;
+                border-radius: 15px;
+                background:#6b8e23;
+                text-align: center;
+			    color:white ;
+			    text-shadow: 0px 0px 2px #000;
+			    opacity: 1;
+                font-size: 0.9em;
+            }
+            th{
+                width: 120px;
+                padding: 1px 10px 20px;
+                height: 80px;
+                margin-bottom: 30px;
+                vertical-align: text-top;
+                text-align: center;
+            }
+            .row{
+                margin-top: 40px;
+                line-height: 80%;
+                display: flex;
+            }
+            .column {
+                float: left;
+                text-align: center;
+                font-size: 1.5em;
+                width: 50%;
+            }
+            hr{
+                width: 400px;
+                text-align: center;
+            }
+            p1{
+                font-size: 0.8em;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="head">
+            <h1>Siru Tan</h1>
+            <div class = "h2">
+                <h2>Prefer to be called Lily ;）</h2>
+                <a href="tanlily@usc.edu"><h2>tanlily@usc.edu</h2></a>
+            </div>
+        </div>
+        <div class = "square">
+            <p>Favorite Color</p>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <p>Assignments</p>
+                <hr>
+            </div>
+            <div class="column">
+                <p>Labs</p>
+                <hr>
+                <p1>Lab 1: Student Page</p>
+            </div>
+          </div>
+
+          <script>
+            document.querySelector(".square").onclick = function(){
+			    document.querySelector("body").style.backgroundColor = "#6b8e23";
+                document.querySelector(".square").style.backgroundColor = "white";
+                document.querySelector(".square").style.color = "black";
+                document.querySelector(".h2").style.color = "black";
+		    } 
+          </script>
+    </body>
+
+</html>
