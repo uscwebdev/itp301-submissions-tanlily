@@ -41,21 +41,20 @@
 		document.querySelector("#eur-btn").onclick = function(){
 			// d. create a new variable to store converted value from USD to EUR or CNY,
 			var eur = usd * 0.93;
-			// parse float and round up
+			// e. parse float and round up
 			var eur_round = parseFloat(eur).toFixed(2);
-			// e. display calculated value in the appropriate <span> tag.
+			// f. display calculated value in the appropriate <span> tag.
 			document.querySelector("#eur-value").innerHTML = eur_round;
 		}
 		
 		document.querySelector("#cny-btn").onclick = function(){
 			// d. create a new variable to store converted value from USD to EUR or CNY,
 			var cny = usd * 6.77;
-			// parse float and round up
+			// e. arse float and round up
 			var cny_round = parseFloat(cny).toFixed(2);
-			// e. display calculated value in the appropriate <span> tag.
+			// f. display calculated value in the appropriate <span> tag.
 			document.querySelector("#cny-value").innerHTML = cny;
 		}
-
 	</script>
 </body>
 </html>
