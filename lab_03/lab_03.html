@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Lily Tan | Perfume Shop</title>
+    <style>
+        #header{
+            width: auto;
+            height: 300px;
+            background-color: darkseagreen;
+            font-size: 2em;
+            padding: 1px;
+            margin: 0px;
+            text-align: center;
+        }
+        h1{
+            margin-top: 95px;
+        }
+        #products{
+            width: auto;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            /*display: flex;*/
+        }
+        .column1{
+            /*float: center;*/ 
+            width: 33%;
+            display: inline-block;
+        }
+        .column2{
+            /*float: center;*/
+            width: 33%;
+            display: inline-block;
+
+        }
+        .column3{
+            /*float: center;*/
+            width: 33%;
+            display: inline-block;
+
+        }
+        .allimg{
+            display: block;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+            width: 80%; /*make one a percent and other auto (or set the other and content: cover)*/
+            height: 350px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #footer{
+            width: auto;
+            height: 30px;
+            background-color: darkseagreen;
+            padding: 1px;
+            margin-bottom: 0px;
+            text-align: center;
+        }
+        h2{
+            margin-bottom: 20px;
+            font-size: 0.8em;
+        }
+        p{
+            text-align: center;
+            line-height: 20px;
+        }
+        .name{
+            font-size: 1.2em;
+        }
+        .text{
+            display: flex;
+            width: 1200px;
+            margin: 30px auto 30px auto;
+        }
+        .cs{
+            width:50%;
+            display: inline-block;
+            text-align: right;
+            font-size: 1.15em;
+        }
+        .rf{
+            width:50%;
+            display: inline-block;
+            text-align: left;
+            font-size: 1.15em;
+        }
+
+        img:hover {
+            opacity: .5;
+        }
+        .addFund{
+            display: flex;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- div for header -->
+    <div id = "header">
+        <h1>My Cart</h1>
+    </div>
+    <div id = "products">
+        <div class="column1">
+            <img class = "allimg" src = "img/a13.jpg" alt = "perfume1"  id = "p1">
+            <strong><p class = "name">Lelabo Anther 13</p></strong>
+            <p>$<span class = "lp">230</span></p>
+        </div>
+        <div class="column2">
+            <img class = "allimg" src = "img/mfk.webp" alt = "perfume2"  id = "p2">
+            <strong><p class = "name">MFK Baccarat Rouge 540 EDP</p></strong>
+            <p>$<span class = "mp">325</span></p>
+        </div>
+        <div class="column3">
+            <img class = "allimg" src = "img/lily.webp" alt = "perfume3" id = "p3">
+            <strong><p class = "name">Guarlain Baccarat Rouge 540 EDP</p></strong>
+            <p>$<span class = "gp">750</span></p>
+        </div>
+    </div>
+    <div class = "text">
+        <div class = "rf">
+            <strong><p1>Remaining Funds: $</p1></strong><span id = "remainf">0</span>
+            <div class="addFund">
+
+                <div id="dollarSign">$ </div>
+
+                <input type="text" id="fundInput">
+
+                <button id="addMoney">Add Money</button>
+
+            </div> <!-- .row -->
+        </div>
+        <div class = "cs"><strong><p1>Cart Subtotal: $</p1></strong> <span id = "st">0</span></div>
+    </div>
+    <!-- <div class = "cs"><strong><p1>Cart Subtotal:</p1></strong> $<span id = "st">0</span></div> -->
+
+    <div id = "footer"> 
+        <h2>@Lily Tan | <a href="mailto=tanlily@usc.edu">tanlily@usc.edu</a></h2>
+    </div>
+    <script>
+        // mind roadmap
+        // a. create global variable for subtotal
+        // b. user clicks on an image (.onclick event);
+        // c. create local variable price-of-product, (and click will also trigger the shading of the image)
+        // d. add the price-of-variable to the subtotal variable
+        // e. display the subtotal
+
+        // a. create global variable for subtotal
+        //var subtotal = parseInt(document.querySelector("#st").innerHTML);
+        var subtotal = parseInt(0);
+        // b. user clicks on an image (.onclick event);
+        document.querySelector("#p1").onclick = function(){
+            // c. create local variable price-of-product, and click will also trigger the shading of the image
+            var pol = parseInt(document.querySelector(".lp").innerHTML);
+            // when adding the product, add the product when fund is enough, else showing add fund alert
+            if(pol<=remainFund){
+				// d. add the price-of-variable to total value of the product
+                subtotal += pol;
+                // e. display the subtotal
+                document.querySelector("#st").innerHTML = subtotal;
+                remainFund -=pol
+                // minus the price of product from fund
+                document.querySelector("#remainf").innerHTML = remainFund;
+			}
+			else{
+				alert("Fund not enough, please add fund!");
+			}
+        }
+        document.querySelector("#p2").onclick = function(){
+            // c. create local variable price-of-product, and click will also trigger the shading of the image
+            var pom = parseInt(document.querySelector(".mp").innerHTML);
+            // when adding the product, add the product when fund is enough, else showing add fund alert
+            if(pom<=remainFund){
+				// d. add the price-of-variable to total value of the product
+                subtotal += pom;
+                // e. display the subtotal
+                document.querySelector("#st").innerHTML = subtotal;
+                remainFund -=pom
+                // minus the price of product from fund
+                document.querySelector("#remainf").innerHTML = remainFund;
+			}
+			else{
+				alert("Fund not enough, please add fund!");
+			}
+        }
+        document.querySelector("#p3").onclick = function(){
+            // c. create local variable price-of-product, and click will also trigger the shading of the image
+            var pog = parseInt(document.querySelector(".gp").innerHTML);
+            // when adding the product, add the product when fund is enough, else showing add fund alert
+            if(pog<=remainFund){
+				// d. add the price-of-variable to total value of the product
+                subtotal += pog;
+                // e. display the subtotal
+                document.querySelector("#st").innerHTML = subtotal;
+                remainFund -=pog;
+                // minus the price of product from fund
+                document.querySelector("#remainf").innerHTML = remainFund;
+			}
+			else{
+				alert("Fund not enough, please add fund!");
+			}
+        }
+
+        // add fund mind roadmap
+        /*
+            1. create global variable fund and input value
+            2. detect the userclick on add money button
+            3. get user input for money value save as input value
+            4. clear the input field.
+            5. add fund amount into remaining fund and change the number displayed
+            6. when adding the product, add the product when fund is enough, else showing add fund alert
+            7. minus the price of product from fund
+        */
+        var remainFund = 0;
+        var inputValue;
+        // detect the userclick on add money button
+        document.querySelector("#addMoney").onclick = function(){
+			// get user input for money value save as input value
+			inputValue = document.querySelector("#fundInput").value;
+			// convert it into a numeric value, 
+			inputValue = parseInt(inputValue);
+			// clear the input field.
+			document.querySelector("#fundInput").value = "";
+            // add fund amount into remaining fund change the number displayed
+            remainFund += inputValue;
+            document.querySelector("#remainf").innerHTML = remainFund;
+		}
+    </script>
+</body>
+</html> 
