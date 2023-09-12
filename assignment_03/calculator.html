@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title>JS Calculator</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -46,7 +46,7 @@
 				</div> <!-- .row -->
 				<div class="row">
 					<button id = "num0" class="col-6 btn btn-lg btn-outline-dark">0</button>
-					<button class="col-3 btn btn-lg btn-outline-dark">.</button>
+					<button id = "dot" class="col-3 btn btn-lg btn-outline-dark">.</button>
 					<button id = "equal" class="col-3 btn btn-lg btn-outline-dark">=</button>
 				</div> <!-- .row -->
 			</div> <!-- #calculator -->
@@ -54,13 +54,29 @@
 	</div> <!-- .container -->
 
 	<script>
-		// 0 cannot be denominator
-		// decimal
-		// global variable to save numbers and operations
-		// read the display when clicking on the number
-		// when click on the =,  save the second n 
+		/*
+			workflow
+			1. for every number, when click on the number button, diplay will be changed to the
+				the number clicked when = 0 or append the clicked number if != 0
+			2. When the dot is click on, diplay will be set to "0.", and will append a "." if 
+				display != 0. In the following step, when parse display into numbers, we will 
+				implement parseFloat
+			3. for every operation, the current number display will be saved into num1, and 
+				clicked operation being saved into variable operation, and change the diplay back
+				to 0 for user to input the second number
+			4. When the "=" button being clicked, the current display(number 2) will be saved into
+				a new created variabl num2, and calculate the result based on the operation sign
+			5. then when ac button being clicked, num1, diplay, and operation will be set to 
+				either 0 or empty value
+			
+		*/
+		// global variable num1 and operation
 		var num1=0;
 		var operation = 0;
+		/*
+			1. for every number, when click on the number button, diplay will be changed to the
+				the number clicked when = 0 or append the clicked number if != 0
+		*/
 		document.querySelector("#num0").onclick = function(){
 			var display = document.querySelector("#display").value;
 			if(display == "0"){
@@ -161,28 +177,52 @@
 			}
 			document.querySelector("#display").value = display;
 		}
+		/*
+			2. When the dot is click on, diplay will be set to "0.", and will append a "." if 
+				display != 0. In the following step, when parse display into numbers, we will 
+				implement parseFloat
+		*/
+		document.querySelector("#dot").onclick = function(){
+			var display = document.querySelector("#display").value;
+			if(display == "0"){
+				display = "0.";
+			}
+			else{
+				display = display + ".";
+			}
+			document.querySelector("#display").value = display;
+		}
+		/*
+			3. for every operation, the current number display will be saved into num1, and 
+				clicked operation being saved into variable operation, and change the diplay back
+				to 0 for user to input the second number
+		*/
 		document.querySelector("#plus").onclick = function(){
-			num1 = parseInt(document.querySelector("#display").value);
+			num1 = parseFloat(document.querySelector("#display").value);
 			operation = "+";
 			document.querySelector("#display").value = "0"
 		}
 		document.querySelector("#subtract").onclick = function(){
-			num1 = parseInt(document.querySelector("#display").value);
+			num1 = parseFloat(document.querySelector("#display").value);
 			operation = "-";
 			document.querySelector("#display").value = "0";
 		}
 		document.querySelector("#multiply").onclick = function(){
-			num1 = parseInt(document.querySelector("#display").value);
+			num1 = parseFloat(document.querySelector("#display").value);
 			operation = "*";
 			document.querySelector("#display").value = "0";
 		}
 		document.querySelector("#divide").onclick = function(){
-			num1 = parseInt(document.querySelector("#display").value);
+			num1 = parseFloat(document.querySelector("#display").value);
 			operation = "/";
 			document.querySelector("#display").value = "0";
 		}
+		/*
+			4. When the "=" button being clicked, the current display(number 2) will be saved into
+				a new created variabl num2, and calculate the result based on the operation sign
+		*/
 		document.querySelector("#equal").onclick = function(){
-			var num2 = parseInt(document.querySelector("#display").value);
+			var num2 = parseFloat(document.querySelector("#display").value);
 			var result = "Error";
 			if(operation == "+"){
 				result = num1 + num2;
@@ -198,6 +238,10 @@
 			}
 			document.querySelector("#display").value = result;
 		}
+		/*
+			5. then when ac button being clicked, num1, diplay, and operation will be set to 
+				either 0 or empty value
+		*/
 		document.querySelector("#ac").onclick = function(){
 			document.querySelector("#display").value = "0";
 			operation = "";
