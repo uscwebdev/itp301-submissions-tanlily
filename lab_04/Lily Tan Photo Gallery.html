@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Lily Tan | Photo Gallery</title>
+    <style>
+        h1{
+            font-size: 2.5em;
+            text-align: center;
+        }
+        #thumbnails{
+            width: 1500px;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+        }
+        .column1{
+            display: inline-block;
+            width: 400px;
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+        .column2{
+            display: inline-block;
+            width: 400px;
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+        .column3{
+            display: inline-block;
+            width: 400px;
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+        .allimg{
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+            width: 375px;
+            height: 300px;
+        }
+        .square {
+            border: 1px solid #CCC;
+            width: 900px;
+            height: 900px;
+            margin-top: 30px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align:center;
+         }
+         #big{
+            width: 900px;
+            height: 900px;
+         }
+         #caption{
+            font-weight: bold;
+         }
+    </style>
+</head>
+<body>
+    <h1>Lily Tan Perfume Collection</h1>
+    <div id = "thumbnails">
+        <div class="column1">
+            <img class = "allimg" src = "img/ep.jpg" alt = "En Passant"  id = "p1">
+            <img class = "allimg" src = "img/fico.jpg" alt = "Fico"   id = "p2">
+        </div>
+        <div class="column2">
+            <img class = "allimg" src = "img/fresia.webp" alt = "Fresia"  id = "p3">
+            <img class = "allimg" src = "img/np.webp" alt = "Not a Perfume"  id = "p4"> 
+        </div>
+        <div class="column3">
+            <img class = "allimg" src = "img/oolong.jpg" alt = "Oolong Infinity" id = "p5">
+            <img class = "allimg" src = "img/wt.jpg" alt = "White Tea"  id = "p6">
+        </div>
+    </div>
+    <div class = "square">
+        <img id = "big" src = "img/ep.jpg" alt = "perfume1">
+        <p id = "caption"><strong>En Passant</strong></p>
+    </div>
+    <script>
+        // create a array of thumbnail images
+        var thumbNails = document.querySelectorAll(".allimg");
+
+        //create a function to change the main image source, alt, and caption
+        var changePerfumeImg = function(newSrc, newAlt){
+			document.querySelector("#big").src = newSrc;
+			document.querySelector("#big").alt = newAlt;
+            document.querySelector("#caption").innerHTML = newAlt;
+		}
+
+        // for loop allow for when image in the arrays is clicked, updat the main image using the function
+        for (var i = 0; i < thumbNails.length; i++){
+			thumbNails[i].onclick = function(){				
+                changePerfumeImg(this.src, this.alt);
+			}
+		}
+    </script>
+</body>
+</html>
