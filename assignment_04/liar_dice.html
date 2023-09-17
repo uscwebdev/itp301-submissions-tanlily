@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Lily Tan | Liar Dice</title>
+    <style>
+        body{
+            width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #row{
+            display: flex;
+            height: 30px;
+            line-height: 0px;
+        }
+        p{
+            font-size: 1.02em;
+            margin-right: 10px;
+        }
+    #result{
+        display: flex;
+    }
+    h2{
+        margin-right: 10px;
+    }
+    #dice{
+        display: flex;
+    }
+    </style>
+</head>
+<body>
+    <h1>Liar's Dice</h1>
+    <div id = "row">
+        <p>Your Guess: </p>
+        <input type="text" id="textBox">
+        <button id = "submit">Submit</button>
+    </div>
+    <div id = "result">
+        <h2>Results: </h2>
+        <h2 id = gResult> </h2>
+    </div>
+    <div class = "dice">
+        <img id="i1" class = "dImage" src="img/1.png" alt="i1">
+        <img id="i2" class = "dImage" src="img/1.png" alt="i1">
+        <img id="i3" class = "dImage" src="img/1.png" alt="i1">
+        <img id="i4" class = "dImage" src="img/1.png" alt="i1">
+        <img id="i5" class = "dImage" src="img/1.png" alt="i1">
+    </div>
+    <script>
+        var imgArray =  document.querySelectorAll(".dImage");
+         //funtion to change the image
+         var changeImg = function(index,num){
+             var newSrc = "img/"+ num + ".png";
+             var newAlt = "i" + num;
+             imgArray[index].src = newSrc;
+             imgArray[index].alt = newAlt;
+        }
+
+        document.querySelector("#submit").onclick = function(){
+            var number = [];
+            number.length = 5;
+            document.querySelector("#gResult").innerHTML = "Try again."
+            document.querySelector("#gResult").style.color = ("red");
+            for(var i=0; i<5; i++){
+                var random = Math.floor( Math.random() * 6 + 1 );
+                number[i] = random;
+                changeImg(i, random);
+                var input = document.querySelector("#textBox").value;
+                if(input == random){
+                    document.querySelector("#gResult").innerHTML = "You guessed it!"
+                    document.querySelector("#gResult").style.color = ("green");
+                }
+            }
+            document.querySelector("#textBox").value = "";
+        }
+    </script>
+</body>
+</html>
