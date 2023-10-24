@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Lily Tan | Final Project Proposal</title>
+        <style>
+            #head {
+                text-align: center;
+            }
+            h1{
+                font-size: 2.5em;
+            }
+            .color{
+                width: 500px;
+            }
+            .wireframes{
+                display: flex;
+            }
+            .wire{
+                width: 300px;
+            }
+            .pc{
+                background-color: #a782ec;
+                width: 200px
+            }
+            .sc{
+                background-color: #06114F;
+                width: 170px;
+                color: white;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="head">
+            <h1>Lily Tan Final Project Proposal</h1>
+            <div class = "h2">
+                <a href="tanlily@usc.edu"><h2>tanlily@usc.edu</h2></a>
+            </div>
+        </div>
+        <div id = "topic">
+            <h2>
+                Topic
+            </h2>
+            <p>
+                This is a random tarot generator project. Users can select the desired topic(love life, career, and personal life) and 
+                generate an array of 3-4 tarot cards based on selected topic.In each tarot generation, users can click on each card 
+                in the array for more detailed explanation. There will also be a separate page for array explanation for each topic.
+            </p>
+        </div>
+        <div id = "audience">
+            <h2>
+                Target Audience
+            </h2>
+            <p>
+                People who has question on their love life, career, personal life, or simply interested in tarot card. Major age 
+                target range from 16-35.
+            </p>
+        </div>
+        <div id = "designStyle">
+            <h2>
+                Design & Style
+            </h2>
+            <p>
+                The major design style will be tarot card in the middle, with text below. However, compare to black and dark scene, there will be fun element arong the paged and the color scene is lighter.
+            </p>
+            <h3>
+                Color Palette
+            </h3>
+            <img class = "color" src = "img/Dopely-Purple-Color-Palette-–-12-1.png" alt = "color palette" >
+            <p class = "pc">Primary color: medium purple</p>
+            <p class = "sc">Secondary color: sapphire</p>
+            <h3>
+                Website Inspiration
+            </h3>
+            <ul>
+                <li><a href = "https://tarotobot.illo.tv/prediction/7/">Tarot Bot</a> </li>
+                <li><a href = "https://zodianz.com/tarot-card-generator/">Zadianz Tarot</a> </li>
+                <li><a href = "https://www.dailytarotdraw.com/cards">Tarot Generator</a> </li>
+            </ul>
+        </div>
+        <div id = "scope">
+            <h2>
+                Scope and Section
+            </h2>
+            <p>There will be majorly five pages:</p>
+            <ul>
+                <li>Page 1: The first page is the tarot selection page where the users can select the topic they want to know about and their divintion history</li>
+                <li>Page 2-4: Page 2-4 are the shuffling and viewing the card based on selected topics. 
+                    The user can also view the detailed explanation of each card by click on individual cards
+                </li>
+                <li>Page 5: Page 5 is the page where the users can see the exanation of the array of card from different topics
+                </li>
+            </ul>
+        </div>
+        <div id = "extras">
+            <h2>Extras</h2>
+            <ul>
+                <li>DOM Manipulation to select topic, shuffle the card, and view the card</li>
+                <li>DOM Storage to save history questions</li>
+                <li>React library to change the card</li>
+            </ul>
+        </div>
+        <h2>Wire Frames</h2>
+        <div class="wireframes">
+            <img class = "wire" src = "img/Page1.jpg" alt = "w1" >
+            <img class = "wire" src = "img/Page2.jpg" alt = "w2" >
+            <img class = "wire" src = "img/Page3.jpg" alt = "w3" >
+          </div>
+
+          <script>
+            document.querySelector(".square").onclick = function(){
+			    document.querySelector("body").style.backgroundColor = "#6b8e23";
+                document.querySelector(".square").style.backgroundColor = "white";
+                document.querySelector(".square").style.color = "black";
+                document.querySelector(".h2").style.color = "white";
+		    } 
+          </script>
+    </body>
+
+</html>
